@@ -1,14 +1,19 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import ProductApp from './components/ProductApp';
-import ShoppingCart from './components/ShoppingCart';
+import FormSignUp from './components/FormSignUp';
+import ListaUsuarios from "./components/ListaUsuarios";
 
 
 
 function App() {
   return (
-    <>
-      <ShoppingCart/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/form" element={<FormSignUp/>} ></Route>
+        <Route path="/listausuarios" element={<ListaUsuarios/>} ></Route>
+      </Routes>
+      </BrowserRouter>
+
   );
 }
 

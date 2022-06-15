@@ -9,10 +9,17 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email, password)
-        if(email === '' || password === '') {
+        if (email === '' || password === '') {
             console.log("los campos estan vacios");
         }
     }
+
+
+    fetch("https://reqres.in/api/users")
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+        })
 
     return (
         <>
