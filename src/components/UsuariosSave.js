@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 
-
-const FormSignUp = () => {
+const UsuariosSave = () => {
 
     const [inputs, setInputs] = useState({});
 
@@ -45,4 +44,4 @@ const FormSignUp = () => {
     )
 }
 
-export default FormSignUp;
+export default UsuariosSave;

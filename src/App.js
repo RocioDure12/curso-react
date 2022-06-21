@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css';
-import FormSignUp from './components/FormSignUp';
-import ListaUsuarios from "./components/ListaUsuarios";
+import "./styles/_resets.scss";
+import UsuariosSave from './components/UsuariosSave';
+import Usuarios from "./components/Usuarios";
 
 
 
@@ -9,8 +9,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/form" element={<FormSignUp/>} ></Route>
-        <Route path="/listausuarios" element={<ListaUsuarios/>} ></Route>
+        <Route path="/usuariosave" element={<UsuariosSave/>} ></Route>
+        <Route path="/usuarios" element={<Usuarios/>} ></Route>
       </Routes>
       </BrowserRouter>
 

@@ -1,0 +1,39 @@
+@import "variables";
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: $font-family;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 ul {
+    margin: 0;
+}
