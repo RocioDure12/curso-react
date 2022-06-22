@@ -9,10 +9,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/usuariosave" element={<UsuariosSave/>} ></Route>
-        <Route path="/usuarios" element={<Usuarios/>} ></Route>
+        <Route path="/usuarios/save" element={<UsuariosSave />} ></Route>
+        <Route path="/usuarios/save/:id" element={<UsuariosSave />}></Route>
+        <Route path="/usuarios" element={<Usuarios />}></Route>
+
       </Routes>
-      </BrowserRouter>
+    </BrowserRouter>
 
   );
 }

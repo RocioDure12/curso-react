@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import "../styles/_listausuarios.scss";
+import { useNavigate } from "react-router-dom";
 
 const Usuarios = ({ }) => {
     const [usuarios, setUsuarios] = useState([]);
+    const navigate=useNavigate()
 
     const obtenerUsuarios = () => {
         fetch("https://601da02bbe5f340017a19d60.mockapi.io/users")
@@ -17,17 +19,19 @@ const Usuarios = ({ }) => {
     }, [])
 
     const eliminarUsuario = (id) => {
-            fetch(`https://601da02bbe5f340017a19d60.mockapi.io/users/${id}`, {
-                method: "DELETE"
-              })
-              .then((res) => res.json())
-              .then((data) => {
+        fetch(`https://601da02bbe5f340017a19d60.mockapi.io/users/${id}`, {
+            method: "DELETE"
+        })
+            .then((res) => res.json())
+            .then((data) => {
                 obtenerUsuarios()
-              })
+            })
     }
 
-    const editarUsuario = () => {
+{/* EN ESTE CASO UTILICE EL METODO PUT YA QUE LA API MOCKAPI NO TIENE DISPONIBLE PARA UTILIZAR EL METODO PATCH. PERO SERIA MEJOR UTILIZAR PATCH PORQUE NO MODIFICA EL OBJETO COMPLETO SINO SOLO LAS PROPIEDADES ESPECIFICADAS*/}
 
+    const editarUsuario = (id) => {
+    navigate(`/usuarios/save/${id}`)
     }
 
     return (

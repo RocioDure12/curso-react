@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-
+import { useSearchParams } from "react-router-dom";
 
 const UsuariosSave = () => {
 
     const [inputs, setInputs] = useState({});
+    const [searchParams, setSearchParams] = useSearchParams()
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -27,6 +28,7 @@ const UsuariosSave = () => {
                 console.log(data)
            
             })
+
     }
 
     return (
