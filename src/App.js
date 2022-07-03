@@ -4,28 +4,31 @@ import UsuariosSave from './components/UsuariosSave';
 import Usuarios from "./components/Usuarios";
 import UsandoContext from "./components/UsandoContext"
 import Context from "./Context/Context";
-import {useState} from "react";
+import { useState } from "react";
 
 //proveedor--> que informacion vamos a tener
 //consumidor --> lee la informacion del proveedor
 
 
 function App() {
-  const [user, setUser]=useState({})
-  const [theme, setTheme]=useState({})
-  const [languaje, setLanguaje]=useState({})
+  const [user, setUser] = useState({})
+  const [theme, setTheme] = useState({})
+  const [language, setLanguage] = useState("es")
 
   const context = {
     user: {
-  
+      user: user,
+      setUser: setUser,
     },
-  
+    language: {
+      language: language,
+      setLanguage: setLanguage,
+    },
+
     theme: {
-  
+
     },
-    languaje: {
-  
-    },
+
   }
 
   return (

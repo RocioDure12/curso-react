@@ -1,8 +1,11 @@
 import React from "react";
 import "../styles/_nav.scss";
 import { useState, useContext } from "react";
+import Context from "../Context/Context";
 
 const Nav = () => {
+    const context = useContext(Context)
+
     const [input, setInputs] = useState({})
     const [mostrarFormIniciarSesion, setMostrarFormIniciarSesion] = useState(false);
 
@@ -25,26 +28,47 @@ const Nav = () => {
                 'Content-Type': 'application/json'
             }
         })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data)
+            .then(res => res.json())
+            .then(data => {
+                //en este caso como la api es de prueba agregamos manualmente los datos, pero en la vida real la respuesta nos la da la api
+                context.user.setUser({
+                    name: "Rocio",
+                    lastName: "Duré",
+                    age: 27,
+                    email: "emailfalso@gmail.com",
+
+                })
 
             })
     }
 
+    const sesionIniciada = context.user.user.name
+    console.log(context)
+
+
+    const handleClickCerrarSesion = () => {
+        context.user.setUser({})
+    }
+
     return (
         <>
-            <nav className="nav">
-                <h1>Bienvenido</h1>
-                <button onClick={handleClickMostrarInicioSesion}>Iniciar sesión</button>
+            <nav className={sesionIniciada ? "nav-sesion-iniciada" : "nav"}>
+                {sesionIniciada ? <h1>Bienvenide {context.user.user.name}</h1>
+                    : <h1>Bienvenide</h1>}
 
-                {mostrarFormIniciarSesion &&
+                {sesionIniciada &&
+                    <button onClick={handleClickCerrarSesion}>Cerrar sesión</button>}
+
+                {!sesionIniciada &&
+                    < button onClick={handleClickMostrarInicioSesion}>Iniciar sesión</button>
+                }
+                {!sesionIniciada && mostrarFormIniciarSesion &&
                     <form onSubmit={handleSubmit}>
                         <input type="email" placeholder="nombre usuario" value={input.email || ""} onChange={handleChange} name="email" />
                         <input type="password" value={input.contrasenia || ""} onChange={handleChange} name="contrasenia" />
                         <button>enviar</button>
-                    </form>}
-
+                    </form>
+                }
             </nav>
         </>
 
