@@ -7,9 +7,11 @@ import Footer from "../components/Footer";
 const UsandoContext = () => {
     return (
         <>
-            <Nav />
-            <Main />
-            <Footer />
+            <div>
+                <Nav />
+                <Main />
+                <Footer />
+            </div>
         </>
     )
 }

@@ -1,4 +1,9 @@
 .container-tarjetas {
-    display: flex;
-    flex-wrap: wrap
+  display: flex;
+  flex-wrap: wrap;
+
+  .modo-oscuro {
+    background-color: #2C3E50;
+    color: antiquewhite;
   }
+}

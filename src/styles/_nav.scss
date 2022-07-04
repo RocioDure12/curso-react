@@ -1,11 +1,16 @@
 @import "variables";
 
-.nav{
+.nav {
     height: 200px;
-    background-color:$primary-color;
-}
+    background-color: $primary-color;
 
-.nav-sesion-iniciada{
-    height: 200px;
-    background-color:blue;
+    .nav-sesion-iniciada {
+        height: 200px;
+        background-color: blue;
+    }
+
+    .modo-oscuro {
+        background-color: #2C3E50;
+        color: antiquewhite;
+    }
 }

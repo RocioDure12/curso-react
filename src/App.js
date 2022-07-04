@@ -12,7 +12,7 @@ import { useState } from "react";
 
 function App() {
   const [user, setUser] = useState({})
-  const [theme, setTheme] = useState({})
+  const [darkTheme, setDarkTheme] = useState(false)
   const [language, setLanguage] = useState("es")
 
   const context = {
@@ -25,7 +25,9 @@ function App() {
       setLanguage: setLanguage,
     },
 
-    theme: {
+    darkTheme: {
+      darkTheme: darkTheme,
+      setDarkTheme: setDarkTheme,
 
     },
 

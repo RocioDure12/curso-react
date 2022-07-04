@@ -9,13 +9,13 @@ const Main = () => {
 
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=07b7fbf0aa198d742f7f3020308675d2&language=${context.language}`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=07b7fbf0aa198d742f7f3020308675d2&language=${context.language.language}`)
             .then(res => res.json())
             .then(data => {
                 setPeliculas(data.results)
 
             })
-    }, [context.language])
+    }, [context.language.language])
 
     const handleChangeIdioma = (e) => {
         context.language.setLanguage(e.target.value)
