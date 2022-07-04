@@ -4,17 +4,19 @@ import { useContext } from "react";
 
 
 const Footer = () => {
+    const context = useContext(Context)
 
-    const handleClickTheme = () =>{
-        
+    const handleClickTheme = () => {
+        context.darkTheme.setDarkTheme(!context.darkTheme)
     }
 
-    const context = useContext(Context)
 
     return (
         <footer className="footer">
             <p>Hecho con amor by mi</p>
-            <button onClick={handleClickTheme}>Cambiar a modo oscuro</button>
+            <button onClick={handleClickTheme}>
+                Cambiar a modo {context.darkTheme ? "modo-claro" : "modo-oscuro"}
+            </button>
         </footer>
     )
 }
