@@ -1,7 +1,7 @@
 const useApi = (url, api_key) => {
 
-    const list = (endpoint,language) => {
-        return fetch(`${url}/${endpoint}?api_key=${api_key}&language=${language}`)
+    const list = (type,language) => {
+        return fetch(`${url}/${type}?api_key=${api_key}&language=${language}`)
             .then(res => res.json());
     }
 
