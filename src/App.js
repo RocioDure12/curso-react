@@ -3,6 +3,7 @@ import "./styles/_resets.scss";
 import UsuariosSave from './components/UsuariosSave';
 import Usuarios from "./components/Usuarios";
 import UsandoContext from "./components/UsandoContext"
+import PelisNuevas from "./components/PelisNuevas";
 import Context from "./Context/Context";
 import { useState } from "react";
 
@@ -12,7 +13,7 @@ import { useState } from "react";
 
 function App() {
   const [user, setUser] = useState({})
-  const [darkTheme, setDarkTheme] = useState(false)
+  const [theme, setTheme] = useState()
   const [language, setLanguage] = useState("es")
 
   const context = {
@@ -25,9 +26,9 @@ function App() {
       setLanguage: setLanguage,
     },
 
-    darkTheme: {
-      darkTheme: darkTheme,
-      setDarkTheme: setDarkTheme,
+    theme: {
+      theme: theme,
+      setTheme: setTheme,
 
     },
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/usuarios/save/:id" element={<UsuariosSave />}></Route>
           <Route path="/usuarios" element={<Usuarios />}></Route>
           <Route path="/UsandoContext" element={<UsandoContext />}></Route>
+          <Route path="/nuevas" element={<PelisNuevas />}></Route>
 
 
 

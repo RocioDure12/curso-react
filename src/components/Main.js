@@ -2,19 +2,20 @@ import "../styles/_main.scss";
 import { useState, useEffect, useContext } from "react";
 import MovieCard from "./MovieCard";
 import Context from "../Context/Context";
+import useApi from '../Hooks/useApi'
 
 const Main = () => {
     const context = useContext(Context)
     const [peliculas, setPeliculas] = useState([])
-
+    const api = useApi("https://api.themoviedb.org/3/movie","07b7fbf0aa198d742f7f3020308675d2");
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=07b7fbf0aa198d742f7f3020308675d2&language=${context.language.language}`)
-            .then(res => res.json())
-            .then(data => {
-                setPeliculas(data.results)
+        //useFetch(`https://api.themoviedb.org/3/movie/popular?api_key=07b7fbf0aa198d742f7f3020308675d2&//language=${context.language.language}`)
+        
+        api.listPopular(context.language.language)
+            .then((data)=>setPeliculas(data.results))
 
-            })
+
     }, [context.language.language])
 
     const handleChangeIdioma = (e) => {
